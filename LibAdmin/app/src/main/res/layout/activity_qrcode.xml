@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#BEE0B23E"
     android:orientation="vertical"
-    tools:context="com.example.enamul.qrcode.MainActivity">
+    tools:context=".QRcode">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -47,5 +47,4 @@
 
 
     </RelativeLayout>
-
 </LinearLayout>
