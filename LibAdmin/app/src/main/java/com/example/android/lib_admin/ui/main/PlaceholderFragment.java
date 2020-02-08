@@ -47,6 +47,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        /**
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         final TextView textView = root.findViewById(R.id.section_label);
         pageViewModel.getText().observe(this, new Observer<String>() {
@@ -56,5 +57,18 @@ public class PlaceholderFragment extends Fragment {
             }
         });
         return root;
+         */
+        View rootView;
+        if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
+        {
+            rootView = inflater.inflate(R.layout.fragment_bookings,container,false);
+        } else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
+        {
+            rootView = inflater.inflate(R.layout.fragment_collection_information, container, false);
+        } else
+        {
+            rootView = inflater.inflate(R.layout.fragment_main,container,false);
+        }
+        return rootView;
     }
 }
