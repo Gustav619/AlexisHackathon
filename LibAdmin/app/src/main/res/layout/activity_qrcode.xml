@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/btnScan"
             android:layout_marginTop="30dp"
-            android:text="scanned item displayed over here"
+            android:text="scanned QRcode will be displayed over here"
             android:textSize="16dp" />
 
 
