@@ -51,7 +51,27 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(bookReference!=null){
+            bookReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        list1=new ArrayList<>();
+                        for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                            Books b=dataSnapshot1.getValue(Books.class);
+                            list1.add(b);
+                        }
+                        adapter=new BookAdapter(SearchActivity.this,list1);
+                        recyclerView.setAdapter(adapter);
+                    }
+                }
 
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(SearchActivity.this,"Oh snap...Something went wrong",Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
         if(searchView !=null){
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
